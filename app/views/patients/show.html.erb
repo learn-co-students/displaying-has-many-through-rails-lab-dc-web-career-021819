@@ -1,0 +1,12 @@
+<h1>Patient Show Page</h1>
+<!--  lists the date and time for each appointment and links
+to the corresponding doctors show page-->
+<h2>Name: <%= @patient.name %></h2>
+<br>
+<h3>Appointments: </h3>
+<ul>
+  <% @patient.appointments.each do | appointment | %>
+    <li><%= appointment.appointment_datetime.strftime("%B %d, %Y at %R") %>,
+    <%= link_to(appointment.doctor.name, doctor_path(appointment.doctor)) %></li>
+  <% end %>
+</ul>
